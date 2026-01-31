@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
 
-    <div className={`  min-h-screen ${theme ? 'bg-black text-white' : "bg-purple-900 text-black"}`}>
+    <div className={`  min-h-screen ${theme ? 'bg-black text-white' : "bg-white text-black"}`}>
 
     {/* <div className={`${theme ? "black " : "white "} h-full `}> */}
       <Routes>

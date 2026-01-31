@@ -3,7 +3,7 @@ import React from "react";
 
 const Feedback = () => {
   return (
-    <div className="min-h-screen  flex items-center ">
+    <div className="min-h-screen  flex items-center container ">
       <div className="w-full  bg-white rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-2 overflow-hidden">
         {/* Left Section (Info / Design) */}
         <div className="hidden md:flex flex-col justify-center items-center bg-blue-500 text-white p-10">

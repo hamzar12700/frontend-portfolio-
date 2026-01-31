@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const ProjectsBoxes = ({ id, name }) => {
   return (
     <div
-      className='group border rounded-3xl flex flex-col justify-center items-start 
-      w-60 h-80 px-5
+      className='group border rounded-3xl flex flex-col justify-center items-center 
+      w-55 h-80 px-5
       bg-black text-white
       hover:bg-gray-900 transition'
     >

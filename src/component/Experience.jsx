@@ -6,7 +6,7 @@ import { GlobalContext } from '../ContextApi/Context'
 const Experience = () => {
 
 
-    const {theme} = useContext(GlobalContext)
+    const {theme , user} = useContext(GlobalContext)
 
     let expBox = [{
         heading: "Frontend Web Developer",
@@ -19,27 +19,37 @@ const Experience = () => {
 
     ]
     return (
-       <div className={` min-h-[100vh]`}>
-            <h1 className='text-center font-bold sm:text-6xl text-5xl text-[40px] py-2 w-full'>Experience</h1>
-            {/* whole container  */}
-            <div className='flex md:flex-row flex-col justify-center items-center  '>
-                    {/* left side */}
-                <div className='min-h-100 flex gap-2 sm:flex-row flex-col sm:w-full md:w-[80%]'>
-                    {expBox.map((items) => {
-                        return <ExperienceBoxes heading={items.heading} para={items.para} />
-                    })}
-                    {/* <ExperienceBoxes  /> */}
-                </div>
-                    {/* right side */}
-                <div className='w-1/2  h-100 flex justify-center items-center'>
-                    <img
-                        src="/profile.jpeg"
-                        className="h-1/2 rounded-full"
-                        alt=""
-                    />
-                </div>
-            </div>
-        </div>
+     <div className="min-h-[80vh] border-b container mx-auto px-4">
+  <h1 className="text-center font-bold text-4xl sm:text-5xl md:text-6xl my-10">
+    Experience
+  </h1>
+
+  {/* Main wrapper */}
+  <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+
+    {/* Left side */}
+    <div className="flex flex-col sm:flex-row gap-4 w-full md:w-2/3">
+      {expBox.map((items, index) => (
+        <ExperienceBoxes
+          key={index}
+          heading={items.heading}
+          para={items.para}
+        />
+      ))}
+    </div>
+
+    {/* Right side */}
+    <div className="w-full md:w-1/3 flex justify-center items-center">
+      <img
+        src={user?.avatar_url}
+        alt="User"
+        className="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover"
+      />
+    </div>
+
+  </div>
+</div>
+
     )
 }
 

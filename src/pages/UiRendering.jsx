@@ -15,7 +15,7 @@ const UiRendering = () => {
    
 
 
-<div className='container'>
+<div className=''>
         <Navbar/>
         <HeroSection/>
         <Experience/>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   FaGithub,
   FaLinkedin,
@@ -7,24 +7,27 @@ import {
   FaDiscord,
   FaWhatsapp,
 } from "react-icons/fa";
-
+import { GlobalContext } from "../ContextApi/Context";
 const Footer = () => {
+
+const {theme} = useContext(GlobalContext)
+
   return (
-    <footer className="border-t bg-gray-50 mt-16">
+    <footer className={`border-t ${theme ?"bg-black" : "bg-gray-50"} ${theme ? "text-white" : "text-black"}  mt-16`}>
       <div className="max-w-7xl mx-auto px-4 py-10 text-center">
         
         {/* About */}
-        <h2 className="text-xl font-semibold text-gray-800 mb-3">
+        <h2 className={`text-xl font-semibold  mb-3`}>
           About Me
         </h2>
 
-        <p className="text-gray-600 text-sm leading-relaxed max-w-3xl mx-auto">
+        <p className=" text-sm leading-relaxed max-w-3xl mx-auto">
           I’m a passionate Frontend Developer specializing in React.js,
           building clean, responsive, and user-friendly web applications.
         </p>
 
         {/* Social Icons */}
-        <div className="flex justify-center gap-6 mt-6 text-2xl text-gray-600">
+        <div className="flex justify-center gap-6 mt-6 text-2xl ">
           <a
             href="https://github.com/hamzar12700"
             target="_blank"
@@ -82,7 +85,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="mt-8 border-t pt-4">
-          <p className="text-xs text-gray-500">
+          <p className="text-xs ">
             © {new Date().getFullYear()} Hamza Raza. All rights reserved.
           </p>
         </div>

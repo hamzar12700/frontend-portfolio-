@@ -13,7 +13,7 @@ export function GlobalProvider({ children }) {
     const [user, setUser] = useState({});
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(""); // ✅ new state for error
+    const [error, setError] = useState(""); 
 
     // ------ login form =========>>
     const [login, setLogin] = useState(false);

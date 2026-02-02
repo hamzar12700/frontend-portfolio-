@@ -21,20 +21,23 @@ const HeroSection = () => {
 
           <div className='flex gap-3 items-center justify-center' >
 
-            <a
-              href="/hamzaResume.pdf"
-              download
-              className={`
-    
-   flex items-center justify-center w-60 sm:py-3 md:py-3 md:px-2 sm:text-[15px]  rounded-lg
+    <a
+  href="/hamzaResume.pdf"
+  download
+  className={`
+    flex items-center justify-center
+    w-full sm:w-60
+    px-10 py-3  sm:py-4 md:py-3
+    text-[10px] sm:text-base
+    rounded-lg font-medium
+    transition
     ${theme
-                  ? "bg-white text-black hover:bg-gray-200"
-                  : "bg-black text-white hover:bg-gray-800"
-                }
+      ? "bg-white text-black hover:bg-gray-200"
+      : "bg-black text-white hover:bg-gray-800"}
   `}
-            >
-              Download CV
-            </a>
+>Resume
+</a>
+
 
 
             <button

@@ -12,13 +12,11 @@ const App = () => {
     <>
 
     <div className={`  min-h-screen ${theme ? 'bg-black text-white' : "bg-white text-black"}`}>
-
-    {/* <div className={`${theme ? "black " : "white "} h-full `}> */}
       <Routes>
         <Route path="/" element={<UiRendering />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-    {/* </div> */}
+ 
     </div>
     </>
   );

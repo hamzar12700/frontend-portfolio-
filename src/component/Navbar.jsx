@@ -9,38 +9,38 @@ const Navbar = () => {
   const { theme } = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
 
+  const bgColor = theme ? "bg-[#312f2fef] text-white" : "bg-[#f0e9f06c] text-black";
+  const mobileBg = theme ? "bg-yellow-500" : "bg-white";
+
   return (
-    <div className=" w-full  ">
-      {/* Navbar */}
-      <div className={`md:px-30 px-15 -b sm:fixed relative  md:top-0 md:left-0 w-full z-50 ${theme ? "bg-[#312f2fef]" : "bg-[#f0e9f06c]"} ${theme ? "text-[white]" : "text-[black]"}     `}>
-        <div className="w-full mx-auto sm:px-4 flex justify-between items-center h-20 ">
+    <div className="w-full">
+      {/* ================= Navbar ================= */}
+      <header className={`fixed top-0 left-0 w-full z-50 border-b ${bgColor}`}>
+        <div className="h-20 px-6 md:px-12 flex items-center justify-between">
 
           {/* Logo */}
-          <h1 className={`md:text-2xl 
-          left-0
-          sm:text-[25px]
-          text-[25px]
-          font-bold cursor-pointer text-black dark:text-white ${theme ? "text-white" : "text-black"} `}>
+          <h1 className="text-2xl font-bold cursor-pointer">
             Hamza
           </h1>
 
           {/* Desktop Menu */}
-          <ul className={`hidden ${theme ? "text-white" : "text-black"} md:flex items-center gap-8 text-gray-700 dark:text-gray-300`}>
-            <li className="cursor-pointer hover:text-black dark:hover:text-white transition">Home</li>
-            <li className="cursor-pointer hover:text-black dark:hover:text-white transition">About</li>
-            <li className="cursor-pointer hover:text-black dark:hover:text-white transition">Services</li>
-            <li className="cursor-pointer hover:text-black dark:hover:text-white transition">Projects</li>
+          <ul className="hidden md:flex items-center gap-8">
+            {["Home", "About", "Services", "Projects"].map(item => (
+              <li key={item} className="cursor-pointer hover:opacity-70">
+                {item}
+              </li>
+            ))}
           </ul>
 
-          {/* Right */}
+          {/* Right Side */}
           <div className="flex items-center gap-4">
-            <Link to="/login" className="hidden md:flex">
-              <button className="border px-4 py-1 rounded hover:bg-black hover:text-white transition">
+
+            <Link to="/login" className="hidden md:block">
+              <button className="border px-4 py-1 rounded hover:bg-black hover:text-white">
                 Login
               </button>
             </Link>
 
-            {/* Desktop Theme */}
             <div className="hidden md:block">
               <DarkBtn />
             </div>
@@ -48,46 +48,49 @@ const Navbar = () => {
             {/* Hamburger */}
             <button
               onClick={() => setOpen(!open)}
-              className={`md:hidden text-2xl text-black dark:text-white ${theme ? "text-white" : "text-black"} `}
+              className="md:hidden text-2xl"
             >
               {open ? <MdClose /> : <GiHamburgerMenu />}
             </button>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile Menu with Smooth Slide */}
+      {/* ================= Mobile Menu ================= */}
       <div
         className={`
-          fixed top-20 left-0 w-full h-screen ${theme ? "bg-yellow-500" : "bg-white"} dark:bg-black z-40
-          transform transition-transform duration-300 ease-in-out
-          ${open ? "translate-y-0" : "-translate-y-full"} md:hidden
+          fixed top-20 left-0 w-full h-screen z-40 md:hidden
+          ${mobileBg}
+          transform transition-transform duration-300
+          ${open ? "translate-y-0" : "-translate-y-full"}
         `}
       >
-        <ul className="flex flex-col gap-5 px-6 py-6 text-gray-700 dark:text-gray-300">
-          <li className="cursor-pointer" onClick={() => setOpen(false)}>Home</li>
-          <li className="cursor-pointer" onClick={() => setOpen(false)}>About</li>
-          <li className="cursor-pointer" onClick={() => setOpen(false)}>Services</li>
-          <li className="cursor-pointer" onClick={() => setOpen(false)}>Projects</li>
+        <ul className="flex flex-col gap-6 p-6">
+          {["Home", "About", "Services", "Projects"].map(item => (
+            <li
+              key={item}
+              className="cursor-pointer"
+              onClick={() => setOpen(false)}
+            >
+              {item}
+            </li>
+          ))}
 
           <Link to="/login">
             <button
-              className="border px-4 py-2 rounded w-full hover:bg-black hover:text-white transition"
+              className="border px-4 py-2 rounded w-full" 
               onClick={() => setOpen(false)}
             >
               Login
             </button>
           </Link>
 
-          {/* Mobile Theme Button */}
-          <div className="pt-2">
-            <DarkBtn />
-          </div>
+          <DarkBtn />
         </ul>
       </div>
 
       {/* Spacer */}
-      <div className="h-20"></div>
+      <div className="h-20" />
     </div>
   );
 };
